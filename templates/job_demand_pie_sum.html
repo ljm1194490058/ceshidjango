@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome-pyecharts</title>
+            <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+        <script type="text/javascript" src="https://assets.pyecharts.org/assets/themes/macarons.js"></script>
+        <script type="text/javascript" src="https://assets.pyecharts.org/assets/jquery.min.js"></script>
+        <script type="text/javascript" src="https://assets.pyecharts.org/assets/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="https://assets.pyecharts.org/assets/ResizeSensor.js"></script>
+        <link rel="stylesheet" type="text/css" href="../static/css/zhuce.css">
+	    <script src="../static/js/jquery.js"></script>
+	    <script src="../static/js/vector.js"></script>
+        <link rel="stylesheet"  href="https://assets.pyecharts.org/assets/jquery-ui.css">
+
+    <style>
+
+			ul {
+					list-style: none;
+				}
+				a {
+					text-decoration: none;
+				}
+				/*一级菜单样式, 头部导航栏以及登录注册按钮*/
+				.toubu {
+                    z-index: 1000;
+					min-width: 1100px;
+					width: 100%;
+					height: 50px;
+					margin: 0px auto;
+					background-color: white;
+					font-size: 18px;
+					font-family: 微软雅黑;
+					position: fixed;
+				}
+				.toubu ul{
+					height: 50px;
+				}
+			   .toubu ul li {
+				   left: 500px;
+			        float: left;
+			        /*包含块*/
+			        position:relative;
+			    }
+			    .toubu ul li a {
+					display: block;
+					font-size: 18px;
+					width: 160px;
+					height: 50px;
+					line-height: 46px;
+					text-align: center;
+					color: black;
+			        }
+
+				.toubu ul li a:hover {
+					color: black;
+				   background-color: aqua;
+				}
+			/*二级菜单样式*/
+			        .toubu ul li ul {
+			        position:absolute;
+			        top:50px;
+			        left:-500px;
+			        display:none;
+
+			        }
+					.toubu ul li ul li {
+					float:none;
+					}
+					.toubu ul li ul li a{
+					background-color: white;
+					font-size: 16px;
+					color: black;
+					/* border-top:1px solid #ccc; */
+					}
+			            /*一级菜单悬停时二级菜单可见*/
+			        .toubu ul li:hover ul {
+			        display:block;
+			        }
+				.img_1{   /*logo图片设置*/
+					position: absolute;
+					float: left;
+					top: 4px;
+					left: 250px;
+				}
+				.logo_1{
+					position: absolute;
+					float: left;
+					top: 9px;
+					font-family: "楷体";
+					font-size: 25px;
+					font-weight: bold;
+
+					left: 335px;
+				}
+
+				.btn_1{   /*登录按钮设置*/
+					position: absolute;
+					float: left;
+					width: 200px;
+					left: 1150px;
+					top: 8px;
+					color: darkslategrey;
+					background-color: white;
+					font-size: 15px;
+					border: 0;
+				}
+
+		</style>
+
+</head>
+<body>
+    <style>.box {  z-index: 999;  }</style>
+
+    <div class="toubu">
+		    <ul>
+				<a href=""><img src="../static/images/J.png" alt="" class="img_1"  width="70" height="40"/></a>
+				<span class="logo_1">就业信息</span>
+		        <li><a href="">首页</a>
+
+		        </li>
+		        <li><a href="">平台数据展</a>
+		            <ul>
+		                <li><a href="/test_pic">大数据展示屏</a></li>
+		                <li><a href="/job_demand">薪资职位分析</a></li>
+		                <li><a href="/xinzi_bar">各岗位技能分析</a></li>
+						<li><a href="/pie_bar_test">各地区岗位分析</a></li>
+		            </ul>
+		        </li>
+		        <li><a href="">其他功能</a></li>
+		    </ul>
+
+
+		</div>
+
+    <div class="box">
+                <div id="0a6f805201844143ac83e3238dd2d149" class="chart-container" style="position: absolute; width: 752px; height: 457px; top: 79.80000305175781px; left: 8px;"></div>
+    <script>
+        var chart_0a6f805201844143ac83e3238dd2d149 = echarts.init(
+            document.getElementById('0a6f805201844143ac83e3238dd2d149'), 'macarons', {renderer: 'canvas'});
+        var option_0a6f805201844143ac83e3238dd2d149 = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "series": [
+        {
+            "type": "pie",
+            "name": "Java\u5f00\u53d1\u5de5\u7a0b\u5e08\u5404\u6280\u80fd\u5360\u6bd4",
+            "clockwise": true,
+            "data": [
+                {
+                    "name": "Java",
+                    "value": 112662
+                },
+                {
+                    "name": "Spring",
+                    "value": 63891
+                },
+                {
+                    "name": "MySQL",
+                    "value": 42373
+                },
+                {
+                    "name": "MyBatis",
+                    "value": 23105
+                },
+                {
+                    "name": "\u540e\u7aef\u5f00\u53d1",
+                    "value": 20281
+                },
+                {
+                    "name": "\u6570\u636e\u5e93",
+                    "value": 20181
+                }
+            ],
+            "radius": [
+                "0%",
+                "75%"
+            ],
+            "center": [
+                "50%",
+                "50%"
+            ],
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8,
+                "formatter": "{b}:{c} \n{d}%"
+            },
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            },
+            "position": "right"
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "Java",
+                "Spring",
+                "MySQL",
+                "MyBatis",
+                "\u540e\u7aef\u5f00\u53d1",
+                "\u6570\u636e\u5e93"
+            ],
+            "selected": {},
+            "show": true,
+            "left": "2%",
+            "top": "15%",
+            "orient": "vertical",
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5
+    },
+    "title": [
+        {
+            "text": "Java\u5f00\u53d1\u5de5\u7a0b\u5e08\u5404\u6280\u80fd\u5360\u6bd4",
+            "padding": 5,
+            "itemGap": 10
+        }
+    ]
+};
+        chart_0a6f805201844143ac83e3238dd2d149.setOption(option_0a6f805201844143ac83e3238dd2d149);
+    </script>
+<br/>                <div id="42738d0013fb4c6c93c64937db653208" class="chart-container" style="position: absolute; width: 723px; height: 458px; top: 79.5999984741211px; left: 775px;"></div>
+    <script>
+        var chart_42738d0013fb4c6c93c64937db653208 = echarts.init(
+            document.getElementById('42738d0013fb4c6c93c64937db653208'), 'macarons', {renderer: 'canvas'});
+        var option_42738d0013fb4c6c93c64937db653208 = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "series": [
+        {
+            "type": "pie",
+            "name": "Python\u5f00\u53d1\u5de5\u7a0b\u5e08\u5404\u6280\u80fd\u5360\u6bd4",
+            "clockwise": true,
+            "data": [
+                {
+                    "name": "Python",
+                    "value": 7132
+                },
+                {
+                    "name": "Linux",
+                    "value": 1363
+                },
+                {
+                    "name": "\u722c\u866b",
+                    "value": 1244
+                },
+                {
+                    "name": "Java",
+                    "value": 1181
+                },
+                {
+                    "name": "Django",
+                    "value": 994
+                },
+                {
+                    "name": "MySQL",
+                    "value": 920
+                }
+            ],
+            "radius": [
+                "0%",
+                "75%"
+            ],
+            "center": [
+                "50%",
+                "50%"
+            ],
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8,
+                "formatter": "{b}:{c} \n{d}%"
+            },
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            },
+            "position": "right"
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "Python",
+                "Linux",
+                "\u722c\u866b",
+                "Java",
+                "Django",
+                "MySQL"
+            ],
+            "selected": {},
+            "show": true,
+            "left": "2%",
+            "top": "15%",
+            "orient": "vertical",
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5
+    },
+    "title": [
+        {
+            "text": "Python\u5f00\u53d1\u5de5\u7a0b\u5e08\u5404\u6280\u80fd\u5360\u6bd4",
+            "padding": 5,
+            "itemGap": 10
+        }
+    ]
+};
+        chart_42738d0013fb4c6c93c64937db653208.setOption(option_42738d0013fb4c6c93c64937db653208);
+    </script>
+<br/>                <div id="ac982e0480fe48afb6922dd6c1221d18" class="chart-container" style="position: absolute; width: 752px; height: 444px; top: 563.4000244140625px; left: 9px;"></div>
+    <script>
+        var chart_ac982e0480fe48afb6922dd6c1221d18 = echarts.init(
+            document.getElementById('ac982e0480fe48afb6922dd6c1221d18'), 'macarons', {renderer: 'canvas'});
+        var option_ac982e0480fe48afb6922dd6c1221d18 = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "series": [
+        {
+            "type": "pie",
+            "name": "\u524d\u7aefweb\u5de5\u7a0b\u5e08\u5404\u6280\u80fd\u5360\u6bd4",
+            "clockwise": true,
+            "data": [
+                {
+                    "name": "Web\u524d\u7aef",
+                    "value": 34964
+                },
+                {
+                    "name": "Vue",
+                    "value": 34107
+                },
+                {
+                    "name": "Javascript",
+                    "value": 24562
+                },
+                {
+                    "name": "HTML5",
+                    "value": 22785
+                },
+                {
+                    "name": "HTML",
+                    "value": 20816
+                },
+                {
+                    "name": "CSS",
+                    "value": 19544
+                }
+            ],
+            "radius": [
+                "0%",
+                "75%"
+            ],
+            "center": [
+                "50%",
+                "50%"
+            ],
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8,
+                "formatter": "{b}:{c} \n{d}%"
+            },
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            },
+            "position": "right"
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "Web\u524d\u7aef",
+                "Vue",
+                "Javascript",
+                "HTML5",
+                "HTML",
+                "CSS"
+            ],
+            "selected": {},
+            "show": true,
+            "left": "2%",
+            "top": "15%",
+            "orient": "vertical",
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5
+    },
+    "title": [
+        {
+            "text": "\u524d\u7aefweb\u5de5\u7a0b\u5e08\u5404\u6280\u80fd\u5360\u6bd4",
+            "padding": 5,
+            "itemGap": 10
+        }
+    ]
+};
+        chart_ac982e0480fe48afb6922dd6c1221d18.setOption(option_ac982e0480fe48afb6922dd6c1221d18);
+    </script>
+<br/>                <div id="d19508ed4fcd4a9095ac4f03ebe969e3" class="chart-container" style="position: absolute; width: 725px; height: 442px; top: 565.0625px; left: 776px;"></div>
+    <script>
+        var chart_d19508ed4fcd4a9095ac4f03ebe969e3 = echarts.init(
+            document.getElementById('d19508ed4fcd4a9095ac4f03ebe969e3'), 'macarons', {renderer: 'canvas'});
+        var option_d19508ed4fcd4a9095ac4f03ebe969e3 = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "series": [
+        {
+            "type": "pie",
+            "name": "\u5927\u6570\u636e\u5f00\u53d1\u5de5\u7a0b\u5e08\u5404\u6280\u80fd\u5360\u6bd4",
+            "clockwise": true,
+            "data": [
+                {
+                    "name": "Hadoop",
+                    "value": 7569
+                },
+                {
+                    "name": "Spark",
+                    "value": 4313
+                },
+                {
+                    "name": "Python",
+                    "value": 3903
+                },
+                {
+                    "name": "\u6570\u636e\u4ed3\u5e93",
+                    "value": 3837
+                },
+                {
+                    "name": "\u5927\u6570\u636e\u5f00\u53d1",
+                    "value": 3721
+                },
+                {
+                    "name": "Hive",
+                    "value": 3427
+                }
+            ],
+            "radius": [
+                "0%",
+                "75%"
+            ],
+            "center": [
+                "50%",
+                "50%"
+            ],
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8,
+                "formatter": "{b}:{c} \n{d}%"
+            },
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            },
+            "position": "right"
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "Hadoop",
+                "Spark",
+                "Python",
+                "\u6570\u636e\u4ed3\u5e93",
+                "\u5927\u6570\u636e\u5f00\u53d1",
+                "Hive"
+            ],
+            "selected": {},
+            "show": true,
+            "left": "2%",
+            "top": "15%",
+            "orient": "vertical",
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5
+    },
+    "title": [
+        {
+            "text": "\u5927\u6570\u636e\u5f00\u53d1\u5de5\u7a0b\u5e08\u5404\u6280\u80fd\u5360\u6bd4",
+            "padding": 5,
+            "itemGap": 10
+        }
+    ]
+};
+        chart_d19508ed4fcd4a9095ac4f03ebe969e3.setOption(option_d19508ed4fcd4a9095ac4f03ebe969e3);
+    </script>
+<br/>                <div id="0f9a08e1882449e383401c822ea21d64" class="chart-container" style="position: absolute; width: 752px; height: 447px; top: 1031.862548828125px; left: 8px;"></div>
+    <script>
+        var chart_0f9a08e1882449e383401c822ea21d64 = echarts.init(
+            document.getElementById('0f9a08e1882449e383401c822ea21d64'), 'macarons', {renderer: 'canvas'});
+        var option_0f9a08e1882449e383401c822ea21d64 = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "series": [
+        {
+            "type": "pie",
+            "name": "\u6570\u636e\u5206\u6790\u5e08\u5404\u6280\u80fd\u5360\u6bd4",
+            "clockwise": true,
+            "data": [
+                {
+                    "name": "\u6570\u636e\u5206\u6790",
+                    "value": 14554
+                },
+                {
+                    "name": "Python",
+                    "value": 6807
+                },
+                {
+                    "name": "SQL",
+                    "value": 6367
+                },
+                {
+                    "name": "\u6570\u636e\u6316\u6398",
+                    "value": 4178
+                },
+                {
+                    "name": "\u6570\u636e\u5efa\u6a21",
+                    "value": 3036
+                },
+                {
+                    "name": "\u5927\u6570\u636e\u5206\u6790",
+                    "value": 2444
+                }
+            ],
+            "radius": [
+                "0%",
+                "75%"
+            ],
+            "center": [
+                "50%",
+                "50%"
+            ],
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8,
+                "formatter": "{b}:{c} \n{d}%"
+            },
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            },
+            "position": "right"
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "\u6570\u636e\u5206\u6790",
+                "Python",
+                "SQL",
+                "\u6570\u636e\u6316\u6398",
+                "\u6570\u636e\u5efa\u6a21",
+                "\u5927\u6570\u636e\u5206\u6790"
+            ],
+            "selected": {},
+            "show": true,
+            "left": "2%",
+            "top": "15%",
+            "orient": "vertical",
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5
+    },
+    "title": [
+        {
+            "text": "\u6570\u636e\u5206\u6790\u5e08\u5404\u6280\u80fd\u5360\u6bd4",
+            "padding": 5,
+            "itemGap": 10
+        }
+    ]
+};
+        chart_0f9a08e1882449e383401c822ea21d64.setOption(option_0f9a08e1882449e383401c822ea21d64);
+    </script>
+<br/>                <div id="ac71e33ea6714fed8af256745df2f75c" class="chart-container" style="position: absolute; width: 728px; height: 448px; top: 1031.2625732421875px; left: 778px;"></div>
+    <script>
+        var chart_ac71e33ea6714fed8af256745df2f75c = echarts.init(
+            document.getElementById('ac71e33ea6714fed8af256745df2f75c'), 'macarons', {renderer: 'canvas'});
+        var option_ac71e33ea6714fed8af256745df2f75c = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "series": [
+        {
+            "type": "pie",
+            "name": "\u7b97\u6cd5\u5de5\u7a0b\u5e08\u5404\u6280\u80fd\u5360\u6bd4",
+            "clockwise": true,
+            "data": [
+                {
+                    "name": "C++",
+                    "value": 7153
+                },
+                {
+                    "name": "\u6df1\u5ea6\u5b66\u4e60",
+                    "value": 5715
+                },
+                {
+                    "name": "Python",
+                    "value": 5645
+                },
+                {
+                    "name": "\u56fe\u50cf\u5904\u7406",
+                    "value": 5298
+                },
+                {
+                    "name": "\u673a\u5668\u5b66\u4e60",
+                    "value": 4455
+                },
+                {
+                    "name": "\u56fe\u50cf\u7b97\u6cd5",
+                    "value": 3637
+                }
+            ],
+            "radius": [
+                "0%",
+                "75%"
+            ],
+            "center": [
+                "50%",
+                "50%"
+            ],
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8,
+                "formatter": "{b}:{c} \n{d}%"
+            },
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            },
+            "position": "right"
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "C++",
+                "\u6df1\u5ea6\u5b66\u4e60",
+                "Python",
+                "\u56fe\u50cf\u5904\u7406",
+                "\u673a\u5668\u5b66\u4e60",
+                "\u56fe\u50cf\u7b97\u6cd5"
+            ],
+            "selected": {},
+            "show": true,
+            "left": "2%",
+            "top": "15%",
+            "orient": "vertical",
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5
+    },
+    "title": [
+        {
+            "text": "\u7b97\u6cd5\u5de5\u7a0b\u5e08\u5404\u6280\u80fd\u5360\u6bd4",
+            "padding": 5,
+            "itemGap": 10
+        }
+    ]
+};
+        chart_ac71e33ea6714fed8af256745df2f75c.setOption(option_ac71e33ea6714fed8af256745df2f75c);
+    </script>
+<br/>                <div id="d344a0a689fa4cc980d37f13af96ffeb" class="chart-container" style="position: absolute; width: 731px; height: 459px; top: 1508.6624755859375px; left: 780px;"></div>
+    <script>
+        var chart_d344a0a689fa4cc980d37f13af96ffeb = echarts.init(
+            document.getElementById('d344a0a689fa4cc980d37f13af96ffeb'), 'macarons', {renderer: 'canvas'});
+        var option_d344a0a689fa4cc980d37f13af96ffeb = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "series": [
+        {
+            "type": "pie",
+            "name": "\u5176\u4ed6\u540e\u7aef\u5f00\u53d1\u5de5\u7a0b\u5e08\u5404\u6280\u80fd\u5360\u6bd4",
+            "clockwise": true,
+            "data": [
+                {
+                    "name": "Python",
+                    "value": 1161
+                },
+                {
+                    "name": "Java",
+                    "value": 943
+                },
+                {
+                    "name": "\u540e\u7aef\u5f00\u53d1",
+                    "value": 702
+                },
+                {
+                    "name": "C++",
+                    "value": 659
+                },
+                {
+                    "name": "MySQL",
+                    "value": 497
+                },
+                {
+                    "name": "Linux",
+                    "value": 389
+                }
+            ],
+            "radius": [
+                "0%",
+                "75%"
+            ],
+            "center": [
+                "50%",
+                "50%"
+            ],
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8,
+                "formatter": "{b}:{c} \n{d}%"
+            },
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            },
+            "position": "right"
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "Python",
+                "Java",
+                "\u540e\u7aef\u5f00\u53d1",
+                "C++",
+                "MySQL",
+                "Linux"
+            ],
+            "selected": {},
+            "show": true,
+            "left": "2%",
+            "top": "15%",
+            "orient": "vertical",
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5
+    },
+    "title": [
+        {
+            "text": "\u5176\u4ed6\u540e\u7aef\u5f00\u53d1\u5de5\u7a0b\u5e08\u5404\u6280\u80fd\u5360\u6bd4",
+            "padding": 5,
+            "itemGap": 10
+        }
+    ]
+};
+        chart_d344a0a689fa4cc980d37f13af96ffeb.setOption(option_d344a0a689fa4cc980d37f13af96ffeb);
+    </script>
+<br/>                <div id="c6c46d14d8b440d49758c9a21fdc4551" class="chart-container" style="position: absolute; width: 756px; height: 460px; top: 1509.0625px; left: 4px;"></div>
+    <script>
+        var chart_c6c46d14d8b440d49758c9a21fdc4551 = echarts.init(
+            document.getElementById('c6c46d14d8b440d49758c9a21fdc4551'), 'macarons', {renderer: 'canvas'});
+        var option_c6c46d14d8b440d49758c9a21fdc4551 = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "series": [
+        {
+            "type": "pie",
+            "name": "\u6570\u636e\u5e93\u5f00\u53d1\u5de5\u7a0b\u5e08\u5404\u6280\u80fd\u5360\u6bd4",
+            "clockwise": true,
+            "data": [
+                {
+                    "name": "\u6570\u636e\u5e93\u5f00\u53d1",
+                    "value": 366
+                },
+                {
+                    "name": "\u6570\u636e\u5e93",
+                    "value": 365
+                },
+                {
+                    "name": "MySQL",
+                    "value": 328
+                },
+                {
+                    "name": "\u6570\u636e\u4ed3\u5e93",
+                    "value": 254
+                },
+                {
+                    "name": "Python",
+                    "value": 252
+                },
+                {
+                    "name": "Oracle",
+                    "value": 250
+                }
+            ],
+            "radius": [
+                "0%",
+                "75%"
+            ],
+            "center": [
+                "50%",
+                "50%"
+            ],
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8,
+                "formatter": "{b}:{c} \n{d}%"
+            },
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            },
+            "position": "right"
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "\u6570\u636e\u5e93\u5f00\u53d1",
+                "\u6570\u636e\u5e93",
+                "MySQL",
+                "\u6570\u636e\u4ed3\u5e93",
+                "Python",
+                "Oracle"
+            ],
+            "selected": {},
+            "show": true,
+            "left": "2%",
+            "top": "15%",
+            "orient": "vertical",
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5
+    },
+    "title": [
+        {
+            "text": "\u6570\u636e\u5e93\u5f00\u53d1\u5de5\u7a0b\u5e08\u5404\u6280\u80fd\u5360\u6bd4",
+            "padding": 5,
+            "itemGap": 10
+        }
+    ]
+};
+        chart_c6c46d14d8b440d49758c9a21fdc4551.setOption(option_c6c46d14d8b440d49758c9a21fdc4551);
+    </script>
+<br/>    </div>
+    <script>
+            $('#0a6f805201844143ac83e3238dd2d149').css('border-style', 'dashed').css('border-width', '0px');$("#0a6f805201844143ac83e3238dd2d149>div:nth-child(1)").width("100%").height("100%");
+            new ResizeSensor(jQuery('#0a6f805201844143ac83e3238dd2d149'), function() { chart_0a6f805201844143ac83e3238dd2d149.resize()});
+            $('#42738d0013fb4c6c93c64937db653208').css('border-style', 'dashed').css('border-width', '0px');$("#42738d0013fb4c6c93c64937db653208>div:nth-child(1)").width("100%").height("100%");
+            new ResizeSensor(jQuery('#42738d0013fb4c6c93c64937db653208'), function() { chart_42738d0013fb4c6c93c64937db653208.resize()});
+            $('#ac982e0480fe48afb6922dd6c1221d18').css('border-style', 'dashed').css('border-width', '0px');$("#ac982e0480fe48afb6922dd6c1221d18>div:nth-child(1)").width("100%").height("100%");
+            new ResizeSensor(jQuery('#ac982e0480fe48afb6922dd6c1221d18'), function() { chart_ac982e0480fe48afb6922dd6c1221d18.resize()});
+            $('#d19508ed4fcd4a9095ac4f03ebe969e3').css('border-style', 'dashed').css('border-width', '0px');$("#d19508ed4fcd4a9095ac4f03ebe969e3>div:nth-child(1)").width("100%").height("100%");
+            new ResizeSensor(jQuery('#d19508ed4fcd4a9095ac4f03ebe969e3'), function() { chart_d19508ed4fcd4a9095ac4f03ebe969e3.resize()});
+            $('#0f9a08e1882449e383401c822ea21d64').css('border-style', 'dashed').css('border-width', '0px');$("#0f9a08e1882449e383401c822ea21d64>div:nth-child(1)").width("100%").height("100%");
+            new ResizeSensor(jQuery('#0f9a08e1882449e383401c822ea21d64'), function() { chart_0f9a08e1882449e383401c822ea21d64.resize()});
+            $('#ac71e33ea6714fed8af256745df2f75c').css('border-style', 'dashed').css('border-width', '0px');$("#ac71e33ea6714fed8af256745df2f75c>div:nth-child(1)").width("100%").height("100%");
+            new ResizeSensor(jQuery('#ac71e33ea6714fed8af256745df2f75c'), function() { chart_ac71e33ea6714fed8af256745df2f75c.resize()});
+            $('#d344a0a689fa4cc980d37f13af96ffeb').css('border-style', 'dashed').css('border-width', '0px');$("#d344a0a689fa4cc980d37f13af96ffeb>div:nth-child(1)").width("100%").height("100%");
+            new ResizeSensor(jQuery('#d344a0a689fa4cc980d37f13af96ffeb'), function() { chart_d344a0a689fa4cc980d37f13af96ffeb.resize()});
+            $('#c6c46d14d8b440d49758c9a21fdc4551').css('border-style', 'dashed').css('border-width', '0px');$("#c6c46d14d8b440d49758c9a21fdc4551>div:nth-child(1)").width("100%").height("100%");
+            new ResizeSensor(jQuery('#c6c46d14d8b440d49758c9a21fdc4551'), function() { chart_c6c46d14d8b440d49758c9a21fdc4551.resize()});
+            var charts_id = ['0a6f805201844143ac83e3238dd2d149','42738d0013fb4c6c93c64937db653208','ac982e0480fe48afb6922dd6c1221d18','d19508ed4fcd4a9095ac4f03ebe969e3','0f9a08e1882449e383401c822ea21d64','ac71e33ea6714fed8af256745df2f75c','d344a0a689fa4cc980d37f13af96ffeb','c6c46d14d8b440d49758c9a21fdc4551'];
+function downloadCfg () {
+    const fileName = 'chart_config.json'
+    let downLink = document.createElement('a')
+    downLink.download = fileName
+
+    let result = []
+    for(let i=0; i<charts_id.length; i++) {
+        chart = $('#'+charts_id[i])
+        result.push({
+            cid: charts_id[i],
+            width: chart.css("width"),
+            height: chart.css("height"),
+            top: chart.offset().top + "px",
+            left: chart.offset().left + "px"
+        })
+    }
+
+    let blob = new Blob([JSON.stringify(result)])
+    downLink.href = URL.createObjectURL(blob)
+    document.body.appendChild(downLink)
+    downLink.click()
+    document.body.removeChild(downLink)
+}
+    </script>
+</body>
+</html>
