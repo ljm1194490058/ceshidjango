@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load i18n %}
+    <title>Title</title>
+</head>
+<body>
+    <h1>模板学习</h1>
+    <p>{{ name }}</p>
+    <p>{{ users.0 }}</p>
+    <p>{{ users.1 }}</p>
+    <p>{{ k1 }}</p>
+    <p>{{ k2 }}</p>
+    <h2>循环测试</h2>
+    <ul>
+    {% for item in users %}
+        <li>{{ item }} </li>
+    {% endfor %}
+    </ul>
+    <h2>循环测试2</h2>
+    <table border="1">
+    {% for item in us %}
+        <tr>
+            <td>{{ item.id }} </td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.email }}</td>
+            <td>
+                <a>编辑</a> | <a href="/del/?nid={{item.id}}">删除</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+
+</body>
+</html>

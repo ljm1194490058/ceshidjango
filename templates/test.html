@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+		<title>test</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/zhuce.css">
+		<script src="../static/js/jquery.js"></script>
+		<script src="../static/js/vector.js"></script>
+		<script type="text/javascript" src="../static/js/echarts.min.js"></script>
+
+
+<style>
+		ul {
+				list-style: none;
+			}
+			a {
+				text-decoration: none;
+			}
+			/*一级菜单样式, 头部导航栏以及登录注册按钮*/
+			.toubu {
+				position: fixed;
+				min-width: 1100px;
+				width: 100%;
+				height: 50px;
+				margin: 0px auto;
+				background-color: white;
+				font-size: 18px;
+				font-family: 微软雅黑;
+				position: fixed;
+				z-index: 1000;
+			}
+			.toubu ul{
+				height: 50px;
+			}
+		   .toubu ul li {
+			   left: 500px;
+		        float: left;
+		        /*包含块*/
+		        position:relative;
+		    }
+		    .toubu ul li a {
+				display: block;
+				font-size: 18px;
+				width: 160px;
+				height: 50px;
+				line-height: 46px;
+				text-align: center;
+				color: black;
+		        }
+		
+			.toubu ul li a:hover {
+				color: black;
+			   background-color: aqua;
+			}
+		/*二级菜单样式*/
+		        .toubu ul li ul {
+		        position:absolute;
+		        top:50px;
+		        left:-500px;
+		        display:none;
+
+		        }
+				.toubu ul li ul li {
+				float:none;
+				}
+				.toubu ul li ul li a{
+				background-color: white;
+				font-size: 16px;
+				color: black;
+				/* border-top:1px solid #ccc; */
+				}
+		            /*一级菜单悬停时二级菜单可见*/
+		        .toubu ul li:hover ul {
+		        display:block;
+		        }
+			.img_1{   /*logo图片设置*/
+				position: absolute;
+				float: left;
+				top: 4px;
+				left: 250px;
+			}
+			.logo_1{
+				position: absolute;
+				float: left;
+				top: 9px;
+				font-family: "楷体";
+				font-size: 25px;
+				font-weight: bold;
+
+				left: 335px;
+			}
+
+
+	   .body{
+		   top: 60px;
+		   width: 100%;
+		   height: 1000px;
+		   position: absolute;
+           background-color: #c5ccff;
+		   
+	   }
+	   .lbody{
+	   	width: 650px;
+	   	height: 550px;
+	   	position: absolute;
+	   	left: 50px;
+	   z-index: 999;
+	   }
+	   
+	   .rbody{
+		z-index: 999;
+	   	width: 700px;
+	   	height: 500px;
+	   	position: absolute;
+	   	left: 800px;
+   
+	   	
+	   }
+	   
+	   
+    </style>
+	
+	
+	</head>
+	<body>
+		<div class="toubu">
+			<ul>
+				<a href="zhuye.html"><img src="../static/images/J.png" alt="" class="img_1" width="70" height="40"/></a>
+				<span class="logo_1">就业信息</span>
+			    <li><a href="">首页</a>
+
+		        </li>
+		        <li><a href="">平台数据展</a>
+		            <ul>
+		                <li><a href="/test_pic">大数据展示屏</a></li>
+		                <li><a href="/job_demand">薪资职位分析</a></li>
+		                <li><a href="/xinzi_bar">各岗位技能分析</a></li>
+						<li><a href="/pie_bar_test">各地区岗位分析</a></li>
+		            </ul>
+		        </li>
+		        <li><a href="">其他功能</a></li>
+			</ul>
+		</div>
+
+        <script>
+            var pie_data = {
+                pie_data_index: {{ pie_data_index|safe }},
+                data :{{ data|safe }}
+            }
+            var bar_data = {
+                bardata :{{ pie_data|safe }}
+            }
+        </script>
+		<div class="body">
+            <div style="width: 100%; height: 50px; margin-top: 10px"><h1 align="center" style="font-size:22px; font-family: '微软雅黑', 'Microsoft Yahei'">行业招聘岗位需求数据分析</h1></div>
+			<div class="lbody" id="fb1">
+			</div>
+			
+			<div class="rbody" id="fb2">
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			$(function (){
+				echarts_1();
+				echarts_2();
+				
+			function echarts_1(){
+				var myChart = echarts.init(document.getElementById('fb1')); 
+		var	option = {
+    tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b}: {c} ({d}%)'
+    },
+    legend: {
+        data: pie_data.pie_data_index,
+        //data:['直达', '营销广告', '搜索引擎', '邮件营销', '联盟广告', '视频广告', '百度', '谷歌', '必应', '其他'],
+    },
+    series: [
+        {
+            name: '访问来源',
+            type: 'pie',
+            selectedMode: 'single',
+            radius: [0, '30%'],
+            label: {
+                position: 'inner',
+                fontSize: 14,
+            },
+            labelLine: {
+                show: false
+            },
+            data: [
+                {value: 142569, name: 'Java'},
+                {value: 83251, name: 'web'},
+                {value: 30037, name: '数据分析', selected: true}
+            ]
+        },
+        {
+            name: '访问来源',
+            type: 'pie',
+            radius: ['45%', '60%'],
+            labelLine: {
+                length: 30,
+            },
+            label: {
+                formatter: ' {b|{b}} ',
+                rich: {
+                    a: {
+                        color: '#6E7079',
+                        lineHeight: 22,
+                        align: 'center'
+                    },
+                    hr: {
+                        borderColor: '#8C8D8E',
+                        width: '100%',
+                        borderWidth: 1,
+                        height: 0
+                    },
+                    b: {
+                        color: '#4C5058',
+                        fontSize: 14,
+                        fontWeight: 'bold',
+                        lineHeight: 33
+                    },
+                    per: {
+                        color: '#fff',
+                        backgroundColor: '#4C5058',
+                        padding: [3, 4],
+                        borderRadius: 4
+                    }
+                }
+            },
+            data:  pie_data.data,
+        }
+    ]
+};
+	// 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+		}
+		
+
+	function echarts_2(){
+		var myChart = echarts.init(document.getElementById('fb2')); 
+		
+		var	option = {
+    title: {
+        text: '',
+        subtext: ''
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data: ['岗位数']
+    },
+    toolbox: {
+        show: true,
+        feature: {
+            dataView: {show: true, readOnly: false},
+            magicType: {show: true, type: ['line', 'bar']},
+            restore: {show: true},
+            saveAsImage: {show: true}
+        }
+    },
+    calculable: true,
+    xAxis: [
+        {
+            type: 'category',
+            data: pie_data.pie_data_index,
+            axisLabel:{
+                interval:0,
+                rotate:-25,
+            }
+            //data:['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value'
+        }
+    ],
+    series: [
+        {
+            name: '岗位数',
+            type: 'bar',
+            data: bar_data.bardata,
+            markPoint: {
+                data: [
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值'}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'}
+                ]
+            }
+        },
+        
+    ]
+};
+		 myChart.setOption(option);
+
+		}
+		
+
+		})
+		</script>
+	</body>
+</html>

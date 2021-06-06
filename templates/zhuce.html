@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+ <title>登录注册</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/zhuce.css">
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/vector.js"></script>
+    <script type="text/javascript">
+
+    $(function(){
+    	Victor("container", "output");   //登陆背景函数
+        
+      });
+//     function login(){
+//         $.ajax({ 
+//             url: "/ssm-test/findUser",//指定请求地址
+//             data:{
+//             "username":	$("input[name=u]").val(),
+//             "password": $("input[name=p]").val() },//承载参数数据
+//             type:"POST",//指定提交类型
+//             dataType:"TEXT",//指定返回数据	
+//             success: function(data){
+//             if(data){
+// //             	alert(data);
+// 				var fid = data.split('id":')[1];
+// 				var id = fid.split(',"nickname')[0];
+// // 				alert(id);
+//             	alert("登录成功");
+//             	window.location.href="frame.html?id=" + id;
+//             }
+//             else{
+//             	alert("密码或用户名错误");
+//             }
+//             },//程序异常回应函数
+//             error:function(err){
+//                    console.log(err,"出错了");
+//             }
+//          });
+//        
+//     };
+//     $(document).ready(function(){
+        
+//      });
+    </script>
+    <style>
+		ul {
+				list-style: none;
+			}
+			a {
+				text-decoration: none;
+			}
+			/*一级菜单样式, 头部导航栏以及登录注册按钮*/
+			.toubu {
+				min-width: 1100px;
+				width: 100%;
+				height: 50px;
+				margin: 0px auto;
+				background-color: white;
+				font-size: 18px;
+				font-family: 微软雅黑;
+				position: fixed;
+			}
+			.toubu ul{
+				height: 50px;
+			}
+		   .toubu ul li {
+			   left: 500px;
+		        float: left;
+		        /*包含块*/
+		        position:relative;
+		    }
+		    .toubu ul li a {
+				display: block;
+				font-size: 18px;
+				width: 160px;
+				height: 50px;
+				line-height: 46px;
+				text-align: center;
+				color: black;
+		        }
+		
+			.toubu ul li a:hover {
+				color: black;
+			   background-color: aqua;
+			}
+		/*二级菜单样式*/
+		        .toubu ul li ul {
+		        position:absolute;
+		        top:50px;
+		        left:-500px;
+		        display:none;
+
+		        }
+				.toubu ul li ul li {
+				float:none;
+				}
+				.toubu ul li ul li a{
+				background-color: white;
+				font-size: 16px;
+				color: black;
+				/* border-top:1px solid #ccc; */
+				}
+		            /*一级菜单悬停时二级菜单可见*/
+		        .toubu ul li:hover ul {
+		        display:block;
+		        }
+			.img_1{   /*logo图片设置*/
+				position: absolute;
+				float: left;
+				top: 4px;
+				left: 250px;
+			}
+			.logo_1{
+				position: absolute;
+				float: left;
+				top: 9px;
+				font-family: "楷体";
+				font-size: 25px;
+				font-weight: bold;
+
+				left: 335px;
+			}
+		.btn_1{   /*登录按钮设置*/
+			position: absolute;
+			float: left;
+			width: 65px;
+			left: 1150px;
+			top: 12px;
+			color: darkslategrey;
+			background-color: gainsboro;
+			font-size: 18px;
+			border: 0;
+		}			/*注册按钮设置*/
+		.btn_2{
+			position: absolute;
+			float: left;
+			top: 12px;
+			width: 65px;
+			left: 1230px;
+			color: darkslategrey;
+			background-color: gainsboro;
+			font-size: 18px;
+			border: 0;
+		}
+		
+		/*隐藏层，遮罩层，hide*/
+		.hide{
+			display: none;
+			
+		}
+		.shadow{
+			position: fixed;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			background-color: black;
+			opacity: 0.3;
+			z-index: 999;
+		}
+		.modal{
+			position: fixed;
+			z-index: 1000;
+			left: 68%;
+			top: 9%;
+			height: 500px;
+			width: 400px;
+			background-color: white;
+		}
+		.modal form input{
+			background-color: aliceblue;
+			margin-top: 20px;
+			font-size: 16px;
+			border: 1px darkgrey;
+			color: darkslategrey;
+		}
+		
+		
+		
+		
+       #entry_btn{
+       		width:100px;
+       		height:35px;
+       }
+    </style>
+</head>
+<body>
+<div id="container">
+	<div id="output">
+		<div class="toubu">
+		    <ul>
+				<a href="zhuce.html"><img src="../static/images/J.png" alt="" class="img_1"  width="70" height="40"/></a>
+				<span class="logo_1">就业信息</span>
+		        <li><a href="">首页</a>
+		        </li>
+		        <li><a href="">平台数据展</a>
+		            <ul>
+		                <li><a href="/test_pic">大数据展示屏</a></li>
+		                <li><a href="/job_demand">薪资职位分析</a></li>
+		                <li><a href="/xinzi_bar">各岗位技能分析</a></li>
+						<li><a href="/pie_bar_test">各地区岗位分析</a></li>
+		            </ul>
+		        </li>	
+		        <li><a href="">其他功能</a></li>
+		    </ul>
+			<a href="/denglu/"><button class="btn_1" style="cursor:hand" >登录</button></a>
+			<button class="btn_2" onclick="showModel()">注册</button>
+			<div class="shadow hide" id="shadow"></div>
+			<div class="modal hide" id="modal">
+				<form method="POST" action="/zhuce/">
+				<div style="width: 360px; height: 20px;  right: 20px; ">
+				<span style=" float: right;"  ><a href="/denglu/" style="font-size: 15px; color: black;">关闭</a></span>
+				</div>
+				<h2 style="font-size: 21px;  font-family: '楷体'" align="center" >用户注册</h2>
+				
+				<p>
+					<input type="text" name="aca" placeholder="请输入学院"/>
+				</p>
+				<p>
+					<input type="text" name="class" placeholder="请输入班级"/>
+				</p>
+				<p>
+					<input type="text" name="uname" placeholder="请输入姓名"/>
+				</p>
+				<p>
+					<input type="text" name="stuid" placeholder="请输入学号"/>
+				</p>
+				<p>
+					<input type="password" name="password" placeholder="请输入密码"/>
+				</p>
+				<p>
+					<input type="text" name="age" placeholder="请输入年龄"/>
+				</p>
+				<input type="submit" value="提交" style="color: black;"/>
+				</form>
+			</div>
+			<a href="/denglu/"><button class="btn_1" style="cursor:hand" >登录</button></a>
+			<button class="btn_2" onclick="showModel()">注册</button>
+		</div>
+		
+		<script>
+			function showModel(){
+				document.getElementById("shadow").classList.remove('hide');
+				document.getElementById('modal').classList.remove('hide');
+				
+			}
+		</script>
+		
+		<div class="containerT">
+			<h1>用户登录 <p style="color: red;text-align: center">{{error_msg}}</p></h1>
+			<form class="form" id="entry_form"  action="/denglu/" method="post">
+				<input type="text" placeholder="用户名" name="username">
+				<input type="password" placeholder="密码" name="password">
+				<button type="submit" id="entry_btn">登录</button>
+
+				<div id="prompt" class="prompt"></div>
+			</form>
+		</div>
+	</div>
+</div>  
+</body>
+</body>
+</html>
+
+<!-- 
+ 
+ 
+ -->
