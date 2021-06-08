@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>岗位薪资预测</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/predict.css">
+	<script src="../static/js/jquery.js"></script>
+	<script src="../static/js/vector.js"></script>
+    <script type="text/javascript"></script>
+	<script type="text/javascript">
+	$(function(){
+		Victor("container", "output");   //登陆背景函数
+	  });
+	</script>
+
+    <style>
+		ul {
+				list-style: none;
+			}
+			a {
+				text-decoration: none;
+			}
+			/*一级菜单样式, 头部导航栏以及登录注册按钮*/
+			.toubu {
+				z-index: 1000;
+				min-width: 1100px;
+				width: 100%;
+				height: 50px;
+				margin: 0px auto;
+				background-color: white;
+				font-size: 18px;
+				font-family: 微软雅黑;
+				position: fixed;
+			}
+			.toubu ul{
+				height: 50px;
+			}
+		   .toubu ul li {
+			   left: 500px;
+		        float: left;
+		        /*包含块*/
+		        position:relative;
+		    }
+		    .toubu ul li a {
+				display: block;
+				font-size: 18px;
+				width: 160px;
+				height: 50px;
+				line-height: 46px;
+				text-align: center;
+				color: black;
+		        }
+
+			.toubu ul li a:hover {
+				color: black;
+			   background-color: aqua;
+			}
+		/*二级菜单样式*/
+		        .toubu ul li ul {
+		        position:absolute;
+		        top:50px;
+		        left:-500px;
+		        display:none;
+
+		        }
+				.toubu ul li ul li {
+				float:none;
+				}
+				.toubu ul li ul li a{
+				background-color: white;
+				font-size: 16px;
+				color: black;
+				/* border-top:1px solid #ccc; */
+				}
+		            /*一级菜单悬停时二级菜单可见*/
+		        .toubu ul li:hover ul {
+		        display:block;
+		        }
+			.img_1{   /*logo图片设置*/
+				position: absolute;
+				float: left;
+				top: 4px;
+				left: 250px;
+			}
+			.logo_1{
+				position: absolute;
+				float: left;
+				top: 9px;
+				font-family: "楷体";
+				font-size: 25px;
+				font-weight: bold;
+
+				left: 335px;
+			}
+
+			.containerT1{
+			width:800px;
+			height:800px;
+			text-align:center;
+			position:absolute;
+			top: 200px;
+			left:38%;
+			margin:-150px 0 0 -200px;
+			border-radius:3px;
+			background-color: azure;
+			}
+    </style>
+</head>
+<body>
+    <style>.box {  z-index: 999;  }</style>
+<div id="container">
+	<div id="output">
+        <div class="toubu">
+		    <ul>
+				<a href=""><img src="../static/images/J.png" alt="" class="img_1"  width="70" height="40"/></a>
+				<span class="logo_1">就业信息</span>
+		        <li><a href="">首页</a>
+
+		        </li>
+		        <li><a href="">平台数据展</a>
+		            <ul>
+		                <li><a href="/test_pic">大数据展示屏</a></li>
+		                <li><a href="/job_demand">薪资职位分析</a></li>
+		                <li><a href="/xinzi_bar">各岗位技能分析</a></li>
+						<li><a href="/pie_bar_test">各地区岗位分析</a></li>
+		            </ul>
+		        </li>
+		        <li><a href="">其他功能</a>
+                    <ul>
+                        <li><a href="/">岗位薪资预测</a></li>
+                    </ul>
+                </li>
+                <li class="weather"><span id="showTime"></span></li>
+                <style>
+                    .weather{
+                        padding: 15px;
+                    }
+                </style>
+        <script>
+            var t = null;
+            t = setTimeout(time, 1000);
+            function time() {
+                clearTimeout(t);
+                dt = new Date();
+                var y = dt.getFullYear();
+                var mt = dt.getMonth() + 1;
+                var day = dt.getDate();
+                var h = dt.getHours();
+                var m = dt.getMinutes();
+                var s = dt.getSeconds();
+                document.getElementById("showTime").innerHTML = y + "年" + mt + "月" + day + "-" + h + "时" + m + "分" + s + "秒";
+                t = setTimeout(time, 1000);
+            }
+        </script>
+
+		    </ul>
+    </div>
+
+
+    <div class="containerT1">
+			<div class="t1">
+                <p style="font-size: 16px; padding: 10px; float: left;">其他功能 > 岗位薪资预测</p>
+                <br><br><br>
+                <hr style="border: 1px dashed gray;"/>
+                <br>
+                <p style="font-size: 22px;font-family: 宋体;font-weight: 900;color: #000d4a">岗位薪资预测</p>
+
+
+				<form method="POST" action="/xinzi_predict">
+                    <p style="font-size: 18px; padding: 5px;float: left; width: 300px">1.意向岗位:
+                    <select name="job_name" style="font-size: 15px">
+            　　　　    <option>Java开发工程师</option>
+            　　　　    <option>Python开发工程师</option>
+            　　　　    <option>数据分析师</option>
+                        <option>web前端开发师</option>
+                        <option>算法工程师</option>
+             　   　</select></p>
+                    <p style="font-size: 18px; padding: 25px 0 0 32px;float: left">2.是否擅长Java语言：&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="java1" value="1">非常熟练&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="java1" value="0">了解一点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="java1" value="0">完全不懂</p>
+                    <br>
+                    <p style="font-size: 18px; padding: 25px 0 0 32px;float: left">3.是否擅长spring：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="spring1" value="1">非常熟练&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="spring1" value="0">了解一点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="spring1" value="0">完全不懂</p>
+                    <br>
+                    <p style="font-size: 18px; padding: 25px 0 0 32px;float: left">4.是否擅长一门数据库：
+                        <input type="radio" name="sql1" value="1">非常熟练&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="sql1" value="0">了解一点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="sql1" value="0">完全不懂</p>
+                    <br>
+                    <p style="font-size: 18px; padding: 25px 0 0 32px;float: left">5.最期望去的城市：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="city" value="0,1,0,0,0,0,0">北京&nbsp;&nbsp;
+                    <input type="radio" name="city" value="1,0,0,0,0,0,0">上海&nbsp;&nbsp;
+                    <input type="radio" name="city" value="0,0,0,1,0,0,0">广州&nbsp;&nbsp;
+                    <input type="radio" name="city" value="0,0,0,0,0,0,1">深圳&nbsp;&nbsp;
+                    <input type="radio" name="city" value="0,0,0,0,0,1,0">济南&nbsp;&nbsp;
+                    <input type="radio" name="city" value="0,0,0,0,1,0,0">武汉&nbsp;&nbsp;
+                        <input type="radio" name="city" value="0,0,1,0,0,0,0">天津</p>
+                    <br>
+                    <p style="font-size: 18px; padding: 25px 0 0 32px;float: left">6.当前最高学历：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="demand" value="0,0,0,1,0">硕士&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="demand" value="0,0,1,0,0">本科&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="demand" value="0,1,0,0,0">大专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="demand" value="1,0,0,0,0">中专/中技&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="demand" value="0,0,0,0,1">高中</p>
+                    <br>
+                    <p style="font-size: 18px; padding: 25px 2px 0 20px;float: left">7.最期望的公司规模：&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="guimo" value="0,0,0,0,1,0,0">20人以下&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="guimo" value="0,0,0,1,0,0,0">20-99人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="guimo" value="1,0,0,0,0,0,0">100-299人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="guimo" value="0,0,0,0,0,1,0">300-499人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="guimo" value="0,0,0,0,0,0,1">500-999人&nbsp;&nbsp;
+                    <input type="radio" name="guimo" value="0,1,0,0,0,0,0">1000-9999人
+                    <input type="radio" name="guimo" value="0,0,1,0,0,0,0">10000人以上</p>
+                    <input type="submit" value="点击体验" style="color: black; font-size: 18px;background-color: deepskyblue; width: 100px;height: 34px;border: none;float: left;margin-left: 350px;
+    margin-top: 35px;"/>
+                </form>
+
+                {% if message %}
+                    <script>
+
+                        alert('{{ message }}');
+
+                    </script>
+
+                 {% endif %}
+
+
+			</div>
+    </div>
+
+    </div>
+</div>
+
+</body>
+</html>

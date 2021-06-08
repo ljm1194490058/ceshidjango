@@ -28,6 +28,6 @@ urlpatterns = [
     path('pie_bar_test', views.pie_bar_test),
     path('job_demand',views.job_demand),
     path('xinzi_bar', views.xinzi_bar),
-
+    path('xinzi_predict',views.xinzi_predict),
 
 ]

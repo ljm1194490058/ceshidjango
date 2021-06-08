@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Awesome-pyecharts</title>
-            <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+        <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
         <script type="text/javascript" src="https://assets.pyecharts.org/assets/themes/macarons.js"></script>
         <script type="text/javascript" src="https://assets.pyecharts.org/assets/jquery.min.js"></script>
         <script type="text/javascript" src="https://assets.pyecharts.org/assets/jquery-ui.min.js"></script>
@@ -127,7 +127,34 @@
 						<li><a href="/pie_bar_test">各地区岗位分析</a></li>
 		            </ul>
 		        </li>
-		        <li><a href="">其他功能</a></li>
+		        <li><a href="">其他功能</a>
+                    <ul>
+                        <li><a href="/xinzi_predict">岗位薪资预测</a></li>
+                    </ul>
+                </li>
+                <li class="weather"><span id="showTime"></span></li>
+                <style>
+                    .weather{
+                        padding: 15px;
+                    }
+                </style>
+        <script>
+            var t = null;
+            t = setTimeout(time, 1000);
+            function time() {
+                clearTimeout(t);
+                dt = new Date();
+                var y = dt.getFullYear();
+                var mt = dt.getMonth() + 1;
+                var day = dt.getDate();
+                var h = dt.getHours();
+                var m = dt.getMinutes();
+                var s = dt.getSeconds();
+                document.getElementById("showTime").innerHTML = y + "年" + mt + "月" + day + "-" + h + "时" + m + "分" + s + "秒";
+                t = setTimeout(time, 1000);
+            }
+        </script>
+
 		    </ul>
 
 

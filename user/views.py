@@ -6,10 +6,64 @@ import pandas as pd
 from user.models import *
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+
+#核心算法函数
+def forest(list):
+    df = pd.read_csv('C:\\Users\\独为我唱\\Desktop\\data_sum\\updata_java_ceshi222.csv', encoding='gbk')
+    df['job_salary_range'] = df['job_salary_range'].astype(str).map({'0-10K': 0, '10-20K': 1, '20-30K': 2, '>30K': 3})
+    y = df['job_salary_range']
+    x = df.drop(labels=['job_salary_range', 'job_name', 'company_name'], axis=1)  # 删除掉无关列
+    x = pd.get_dummies(x)    #独热编码
+    xtrain, xtest, ytrain, ytest = train_test_split(x, y, test_size=0.2, random_state=5)  # test_size是x，y测试集占总的20%
+    rfc = RandomForestClassifier(max_depth=None, min_samples_split=2,
+                                 random_state=0)  # 实例化rfc = rfc.fit(xtrain, ytrain)    #用训练集数据训练
+    rfc = rfc.fit(xtrain, ytrain)
+    result = rfc.score(xtest, ytest)  # 导入测试集，rfc的接口score计算的是模型准确率accuracy
+    res = rfc.predict(list)
+    return res
+
+
+def xinzi_predict(request):
+    if request.method == 'GET':
+        return render(request,'predict_xinzi.html')
+    else:
+        list1 = []
+        list_sum = []
+        java1 = request.POST.get('java1')
+        spring1 = request.POST.get('spring1')
+        sql1 = request.POST.get('sql1')
+        city = request.POST.get('city')
+        demand = request.POST.get('demand')
+        guimo = request.POST.get('guimo')
+
+        list1.append(java1)
+        list1.append(spring1)
+        list1.append(sql1)
+        print(list1)
+        city = city.split(',')
+        list1.extend(city)
+        demand = demand.split(',')
+        list1.extend(demand)
+        guimo = guimo.split(',')
+        list1.extend(guimo)
+        print(list1)
+        list_sum.append(list1)  # 得到双中括号包起来的列表，并且里面的元素都变成了算法可以直接调用的元素
+        res = forest(list_sum)
+        if res[0] == 0:
+            message = '预测薪资范围是每月5-10K'
+        elif res[0] == 1:
+            message = '预测薪资范围是每月10-20K'
+        elif res[0] == 2:
+            message = '预测薪资范围是每月20-30K'
+        else:
+            message = '预测薪资范围是每月在30k以上'
+    return render(request, 'predict_xinzi.html', {'message': message})
 
 def ceshi2(request):
 
-    return render(request
+        return render(request
                   ,'ceshi2.html',
                   {
                       'name':'all',
@@ -22,9 +76,10 @@ def ceshi2(request):
                   }
             )
 
+
+
 def job_demand(request):
     return render(request, 'job_demand_pie_sum.html',)
-
 def xinzi_bar(request):
     return render(request,'xinzi_bar_sum.html')
 
@@ -75,7 +130,7 @@ def pie_bar_test(request):
                                                         "data":data,
                                                         "pie_data":pie_data,
                                                         })
-
+#辅助函数，用于主展示屏展示工作要求饼图
 def abi_class(list):
     newlist = []
     for ele in list:

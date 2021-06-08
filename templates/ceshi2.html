@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    {% load i18n %}
     <title>Title</title>
 </head>
 <body>
@@ -32,5 +31,54 @@
     {% endfor %}
     </table>
 
+    <form method="POST" action="/ceshi2/">
+        <select name="job_name">
+　　　　    <option>Java开发工程师</option>
+　　　　    <option>Python开发工程师</option>
+　　　　    <option>数据分析师</option>
+            <option>web前端开发师</option>
+            <option>算法工程师</option>
+　　</select>
+        <br>
+        是否擅长Java语言：<input type="radio" name="java1" value="1">非常熟练
+            <input type="radio" name="java1" value="0">了解一点
+　　　　<input type="radio" name="java1" value="0">完全不懂
+        <br>
+        是否擅长spring：<input type="radio" name="spring1" value="1">非常熟练
+            <input type="radio" name="spring1" value="0">了解一点
+　　　　<input type="radio" name="spring1" value="0">完全不懂
+        <br>
+        是否擅长一门数据库：<input type="radio" name="sql1" value="1">非常熟练
+            <input type="radio" name="sql1" value="0">了解一点
+　　　　<input type="radio" name="sql1" value="0">完全不懂
+        <br>
+        最期望去的城市：
+		<input type="radio" name="city" value="0,1,0,0,0,0,0">北京
+        <input type="radio" name="city" value="1,0,0,0,0,0,0">上海
+        <input type="radio" name="city" value="0,0,0,1,0,0,0">广州
+        <input type="radio" name="city" value="0,0,0,0,0,0,1">深圳
+        <input type="radio" name="city" value="0,0,0,0,0,1,0">济南
+        <input type="radio" name="city" value="0,0,0,0,1,0,0">武汉
+        <input type="radio" name="city" value="0,0,1,0,0,0,0">天津
+        <br>
+        当前最高学历：
+		<input type="radio" name="demand" value="0,0,0,1,0">硕士
+        <input type="radio" name="demand" value="0,0,1,0,0">本科
+        <input type="radio" name="demand" value="0,1,0,0,0">大专
+        <input type="radio" name="demand" value="1,0,0,0,0">中专/中技
+        <input type="radio" name="demand" value="0,0,0,0,1">高中
+        <br>
+        最期望的公司规模：
+		<input type="radio" name="guimo" value="0,0,0,0,1,0,0">20人以下
+        <input type="radio" name="guimo" value="0,0,0,1,0,0,0">20-99人
+        <input type="radio" name="guimo" value="1,0,0,0,0,0,0">100-299人
+        <input type="radio" name="guimo" value="0,0,0,0,0,1,0">300-499人
+        <input type="radio" name="guimo" value="0,0,0,0,0,0,1">500-999人
+        <input type="radio" name="guimo" value="0,1,0,0,0,0,0">1000-9999人
+        <input type="radio" name="guimo" value="0,0,1,0,0,0,0">10000人以上
+        <input type="submit" value="提交" style="color: black;"/>
+    </form>
+
+    <h1>{{ message }}</h1>
 </body>
 </html>
