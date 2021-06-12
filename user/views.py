@@ -10,8 +10,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 
 #核心算法函数
-def forest(list):
-    df = pd.read_csv('C:\\Users\\独为我唱\\Desktop\\data_sum\\updata_java_ceshi222.csv', encoding='gbk')
+def forest(list,df):
     df['job_salary_range'] = df['job_salary_range'].astype(str).map({'0-10K': 0, '10-20K': 1, '20-30K': 2, '>30K': 3})
     y = df['job_salary_range']
     x = df.drop(labels=['job_salary_range', 'job_name', 'company_name'], axis=1)  # 删除掉无关列
@@ -20,7 +19,7 @@ def forest(list):
     rfc = RandomForestClassifier(max_depth=None, min_samples_split=2,
                                  random_state=0)  # 实例化rfc = rfc.fit(xtrain, ytrain)    #用训练集数据训练
     rfc = rfc.fit(xtrain, ytrain)
-    result = rfc.score(xtest, ytest)  # 导入测试集，rfc的接口score计算的是模型准确率accuracy
+    # result = rfc.score(xtest, ytest)  # 导入测试集，rfc的接口score计算的是模型准确率accuracy
     res = rfc.predict(list)
     return res
 
@@ -31,26 +30,52 @@ def xinzi_predict(request):
     else:
         list1 = []
         list_sum = []
-        java1 = request.POST.get('java1')
+        java1 = request.POST.get('java1')              #JAVA要求
         spring1 = request.POST.get('spring1')
         sql1 = request.POST.get('sql1')
+        python1 = request.POST.get('python1')           #Python要求
+        linux1 = request.POST.get('linux1')
+        spider1 = request.POST.get('spider1')
+        html1 = request.POST.get('html1')              # web要求
+        cssjs1 = request.POST.get('cssjs1')
+        vue1 = request.POST.get('vue1')
+        jiqi1 = request.POST.get('jiqi1')               # 算法工程师要求
+        tuxiang1 = request.POST.get('tuxiang1')
+        C1 = request.POST.get('C1')
         city = request.POST.get('city')
         demand = request.POST.get('demand')
         guimo = request.POST.get('guimo')
-
-        list1.append(java1)
-        list1.append(spring1)
-        list1.append(sql1)
-        print(list1)
+        a = request.POST.get('job_name')
+        global df  #声明全局变量
+        if a == 'Java开发工程师':
+            list1.append(java1)
+            list1.append(spring1)
+            list1.append(sql1)
+            df = pd.read_csv('C:\\Users\\独为我唱\\Desktop\\data_sum\\updata_java_ceshi222.csv', encoding='gbk')
+        elif a == 'Python开发工程师':
+            list1.append(python1)
+            list1.append(linux1)
+            list1.append(spider1)
+            df = pd.read_csv('C:\\Users\\独为我唱\\Desktop\\data_sum\\updata_python_ceshi.csv', encoding='gbk')
+        elif a == 'web前端开发师':
+            list1.append(html1)
+            list1.append(cssjs1)
+            list1.append(vue1)
+            df = pd.read_csv('C:\\Users\\独为我唱\\Desktop\\data_sum\\updata_web_ceshi.csv', encoding='gbk')
+        elif a == '算法工程师':
+            list1.append(jiqi1)
+            list1.append(tuxiang1)
+            list1.append(C1)
+            df = pd.read_csv('C:\\Users\\独为我唱\\Desktop\\data_sum\\updata_suanfa_ceshi.csv', encoding='gbk')
         city = city.split(',')
         list1.extend(city)
         demand = demand.split(',')
         list1.extend(demand)
         guimo = guimo.split(',')
         list1.extend(guimo)
-        print(list1)
         list_sum.append(list1)  # 得到双中括号包起来的列表，并且里面的元素都变成了算法可以直接调用的元素
-        res = forest(list_sum)
+
+        res = forest(list_sum,df)
         if res[0] == 0:
             message = '预测薪资范围是每月5-10K'
         elif res[0] == 1:
@@ -62,7 +87,6 @@ def xinzi_predict(request):
     return render(request, 'predict_xinzi.html', {'message': message})
 
 def ceshi2(request):
-
         return render(request
                   ,'ceshi2.html',
                   {
@@ -103,6 +127,8 @@ def zhuce(request):
     if request.method == "POST":
         name = request.POST.get("uname")
         stuid = request.POST.get("stuid")
+        if stu.objects.filter(stuid = stuid):
+            return render(request, 'zhuce.html',{"message": '该账号已存在，请重新注册！'})
         aca = request.POST.get("aca")
         clas = request.POST.get("class")
         password = request.POST.get("password")

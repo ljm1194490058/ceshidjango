@@ -1,8 +1,8 @@
 *{margin:0;padding:0;font-size:13px;font-family:microsoft yahei}
-html,body{width:100%;height:100%;background:#fff}
+html,body{width:100%;height:100%;background:#fff;}
 
-#container{width:100%;height:100%;position:fixed;top:0;left:0;z-index:999}
-#output{width:100%;height:100%}
+#container{width:100%; height:180%; position:fixed;top:0;left:0; bottom:0; z-index:999; overflow: auto}
+#output{width:100%;  height:180%  ;bottom:0; }
 .prompt{width:60%;height:30px;margin:5px auto;text-align:center;line-height:30px;font-family:microsoft yahei,Arial,sans-serif;font-size:13px;color:#df0000}
 
 .containerT{width:400px;height:300px;text-align:center;position:absolute;top:50%;left:50%;margin:-150px 0 0 -200px;border-radius:3px}

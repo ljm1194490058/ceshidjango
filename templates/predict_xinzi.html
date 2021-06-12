@@ -95,7 +95,7 @@
 
 			.containerT1{
 			width:800px;
-			height:800px;
+			height:1000px;
 			text-align:center;
 			position:absolute;
 			top: 200px;
@@ -106,7 +106,7 @@
 			}
     </style>
 </head>
-<body>
+<body >
     <style>.box {  z-index: 999;  }</style>
 <div id="container">
 	<div id="output">
@@ -120,8 +120,8 @@
 		        <li><a href="">平台数据展</a>
 		            <ul>
 		                <li><a href="/test_pic">大数据展示屏</a></li>
-		                <li><a href="/job_demand">薪资职位分析</a></li>
-		                <li><a href="/xinzi_bar">各岗位技能分析</a></li>
+		                <li><a href="/job_demand">各岗位技能分析</a></li>
+		                <li><a href="/xinzi_bar">薪资职位分析</a></li>
 						<li><a href="/pie_bar_test">各地区岗位分析</a></li>
 		            </ul>
 		        </li>
@@ -164,33 +164,65 @@
                 <hr style="border: 1px dashed gray;"/>
                 <br>
                 <p style="font-size: 22px;font-family: 宋体;font-weight: 900;color: #000d4a">岗位薪资预测</p>
-
+                <p style="padding: 17px;font-size: 14px">岗位薪资预测是系统平台自动从海量职位数据中分析并预测出与实际薪资水平大抵相同的功能。在选择意向岗位时，若为Java工程师，技能选择2.3.4选项即可；若为python工程师，选择5.6.7即可；若为web工程师，选择8.9.10。以此类推。</p>
 
 				<form method="POST" action="/xinzi_predict">
                     <p style="font-size: 18px; padding: 5px;float: left; width: 300px">1.意向岗位:
                     <select name="job_name" style="font-size: 15px">
             　　　　    <option>Java开发工程师</option>
             　　　　    <option>Python开发工程师</option>
-            　　　　    <option>数据分析师</option>
                         <option>web前端开发师</option>
                         <option>算法工程师</option>
              　   　</select></p>
-                    <p style="font-size: 18px; padding: 25px 0 0 32px;float: left">2.是否擅长Java语言：&nbsp;&nbsp;&nbsp;&nbsp;
+                    <p style="font-size: 18px; padding: 20px 0 0 32px;float: left">2.是否擅长Java语言：&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="radio" name="java1" value="1">非常熟练&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="radio" name="java1" value="0">了解一点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="radio" name="java1" value="0">完全不懂</p>
-                    <br>
-                    <p style="font-size: 18px; padding: 25px 0 0 32px;float: left">3.是否擅长spring：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <p style="font-size: 18px; padding: 20px 0 0 32px;float: left">3.是否擅长spring：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="radio" name="spring1" value="1">非常熟练&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="radio" name="spring1" value="0">了解一点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="radio" name="spring1" value="0">完全不懂</p>
-                    <br>
-                    <p style="font-size: 18px; padding: 25px 0 0 32px;float: left">4.是否擅长一门数据库：
+                    <p style="font-size: 18px; padding: 20px 0 0 32px;float: left">4.是否擅长一门数据库：&nbsp;
                         <input type="radio" name="sql1" value="1">非常熟练&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="radio" name="sql1" value="0">了解一点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="radio" name="sql1" value="0">完全不懂</p>
-                    <br>
-                    <p style="font-size: 18px; padding: 25px 0 0 32px;float: left">5.最期望去的城市：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <p style="font-size: 18px; padding: 20px 0 0 32px;float: left">5.是否擅长Python语言：
+                        <input type="radio" name="python1" value="1">非常熟练&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="python1" value="0">了解一点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="python1" value="0">完全不懂</p>
+                    <p style="font-size: 18px; padding: 20px 0 0 32px;float: left">6.是否擅长Linux技术：&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="linux1" value="1">非常熟练&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="linux1" value="0">了解一点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="linux1" value="0">完全不懂</p>
+                    <p style="font-size: 18px; padding: 20px 0 0 32px;float: left">7.是否擅长数据采集：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="spider1" value="1">非常熟练&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="spider1" value="0">了解一点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="spider1" value="0">完全不懂</p>
+                    <p style="font-size: 18px; padding: 20px 0 0 32px;float: left">8.是否擅长html语言：&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="html1" value="1">非常熟练&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="html1" value="0">了解一点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="html1" value="0">完全不懂</p>
+                    <p style="font-size: 18px; padding: 20px 0 0 32px;float: left">9.是否擅长CSS和JS：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="cssjs1" value="1">非常熟练&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="cssjs1" value="0">了解一点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="cssjs1" value="0">完全不懂</p>
+                    <p style="font-size: 18px; padding: 20px 0 0 32px;float: left">10.是否擅长Vue：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="vue1" value="1">非常熟练&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="vue1" value="0">了解一点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="vue1" value="0">完全不懂</p>
+                    <p style="font-size: 18px; padding: 20px 0 0 32px;float: left">11.是否擅长机器学习：&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="jiqi1" value="1">非常熟练&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="jiqi1" value="0">了解一点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="jiqi1" value="0">完全不懂</p>
+                    <p style="font-size: 18px; padding: 20px 0 0 32px;float: left">12.是否擅长图像处理：&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="tuxiang1" value="1">非常熟练&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="tuxiang1" value="0">了解一点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="tuxiang1" value="0">完全不懂</p>
+                    <p style="font-size: 18px; padding: 20px 0 0 32px;float: left">13.是否擅长C++：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="C1" value="1">非常熟练&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="C1" value="0">了解一点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="C1" value="0">完全不懂</p>
+                    <p style="font-size: 18px; padding: 20px 0 0 32px;float: left">14.最期望去的城市：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="radio" name="city" value="0,1,0,0,0,0,0">北京&nbsp;&nbsp;
                     <input type="radio" name="city" value="1,0,0,0,0,0,0">上海&nbsp;&nbsp;
                     <input type="radio" name="city" value="0,0,0,1,0,0,0">广州&nbsp;&nbsp;
@@ -198,15 +230,13 @@
                     <input type="radio" name="city" value="0,0,0,0,0,1,0">济南&nbsp;&nbsp;
                     <input type="radio" name="city" value="0,0,0,0,1,0,0">武汉&nbsp;&nbsp;
                         <input type="radio" name="city" value="0,0,1,0,0,0,0">天津</p>
-                    <br>
-                    <p style="font-size: 18px; padding: 25px 0 0 32px;float: left">6.当前最高学历：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <p style="font-size: 18px; padding: 20px 0 0 32px;float: left">15.当前最高学历：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="radio" name="demand" value="0,0,0,1,0">硕士&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="radio" name="demand" value="0,0,1,0,0">本科&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="radio" name="demand" value="0,1,0,0,0">大专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="radio" name="demand" value="1,0,0,0,0">中专/中技&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="radio" name="demand" value="0,0,0,0,1">高中</p>
-                    <br>
-                    <p style="font-size: 18px; padding: 25px 2px 0 20px;float: left">7.最期望的公司规模：&nbsp;&nbsp;&nbsp;&nbsp;
+                    <p style="font-size: 18px; padding: 20px 2px 0 20px;float: left">16.最期望的公司规模：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="radio" name="guimo" value="0,0,0,0,1,0,0">20人以下&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="radio" name="guimo" value="0,0,0,1,0,0,0">20-99人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="radio" name="guimo" value="1,0,0,0,0,0,0">100-299人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
