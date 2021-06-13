@@ -245,12 +245,16 @@
 
         {% if message %}
                     <script>
-
                         alert('{{ message }}');
-
                     </script>
-
                  {% endif %}
+
+        {% if msg %}
+                    <script>
+                        alert('{{ msg }}');
+                    </script>
+                 {% endif %}
+
 
 		<script>
 			function showModel(){

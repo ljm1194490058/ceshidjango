@@ -134,7 +134,7 @@ def zhuce(request):
         password = request.POST.get("password")
         age = request.POST.get("age")
         stu.objects.create(name = name, stuid = stuid, academy= aca, stuclass=clas, age= age,gender=1, password=password )
-        return redirect("/denglu/")
+        return render(request, 'zhuce.html',{"msg":'注册成功'})
     else:
         return render(request, "zhuce.html")
 

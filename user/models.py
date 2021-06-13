@@ -23,11 +23,12 @@ class stu(models.Model):
     name = models.CharField(max_length=20, unique= True, verbose_name='姓名') #,help_text='不要写小名'
     gender = models.BooleanField('性别',choices=((True,'女'),(False,'男')))
     age = models.IntegerField(default=18, verbose_name='年纪')
-    stuid = models.CharField(max_length=20, verbose_name='学号')
+    stuid = models.CharField(max_length=20, verbose_name='学号（登录账号）')
+    password = models.CharField('登录密码', max_length=20, null=True)
     stuclass = models.CharField(max_length=20, verbose_name= '班级')
     academy = models.CharField(max_length=20, verbose_name='学院')
     ability = models.TextField(blank= True, null = True, verbose_name='技能')    #可插入为空或设置default
-    password = models.CharField(max_length=20,null= True)
+
     def __str__(self):
         return self.name
     class Meta:
