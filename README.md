@@ -4,34 +4,20 @@
 基于django就业系统
 
 #### 软件架构
-软件架构说明
+采用python语言和django的web框架，使用B/S模式，同时结合使用mysql关系型数据库，然后进行数据分析并反馈分析处理后的信息推送，最终可视化出来。大体按照大数据处理的流程来操作，包括采用scrapy框架进行数据采集，保证数据量有四十万左右。采用pandas和numpy等第三方库进行数据的预处理，用关系型数据库mysql进行数据存储，通过echarts和pyecharts两种可视化方式进行数据可视化。
 
 
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
 
 
-#### 特技
+#### 第三方库教程
+Django                           2.2
+django-import-export             2.5.0
+django-simpleui                  2021.5.11
+scikit-learn                     0.24.2
+sklearn                          0.0
+pandas                           0.25.3
+PyMySQL                          0.9.3
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+#### 参考博客
+版权声明：本文为CSDN博主「独为我唱」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/xiaomingming99/article/details/118658394
